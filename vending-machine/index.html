@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="./resource/style/reset.css" />
     <link rel="stylesheet" href="./resource/style/style.css" />
+    <script defer src="./resource/js/script.js"></script>
   </head>
   <body>
     <div class="app">
@@ -26,6 +27,7 @@
               data-count=""
               data-price=""
               data-image=""
+              disabled
             >
               <img
                 src="resource/img/Original_Cola.png"
@@ -36,13 +38,14 @@
               <strong class="cola__pri">1000원</strong>
             </button>
           </li>
-          <li class="cola-list__item cola-list__item--soldout">
+          <li class="cola-list__item">
             <button
               class="cola__btn"
               data-item="Original Cola"
               data-count=""
               data-price=""
               data-image=""
+              disabled
             >
               <img
                 src="resource/img/Orange_Cola.png"
@@ -60,6 +63,7 @@
               data-count=""
               data-price=""
               data-image=""
+              disabled
             >
               <img
                 src="resource/img/Violet_Cola.png"
@@ -77,6 +81,7 @@
               data-count=""
               data-price=""
               data-image=""
+              disabled
             >
               <img
                 src="resource/img/Yellow_Cola.png"
@@ -94,6 +99,7 @@
               data-count=""
               data-price=""
               data-image=""
+              disabled
             >
               <img
                 src="resource/img/Cool_Cola.png"
@@ -111,6 +117,7 @@
               data-count=""
               data-price=""
               data-image=""
+              disabled
             >
               <img
                 src="resource/img/Green_Cola.png"
@@ -125,7 +132,7 @@
         <div class="check">
           <div class="check__money check__money--amount">
             입금액 :
-            <span id="balance">1,000원</span>
+            <span id="balance"></span>
           </div>
           <button class="check__btn" id="btnRefund">거스름돈 반환</button>
         </div>
