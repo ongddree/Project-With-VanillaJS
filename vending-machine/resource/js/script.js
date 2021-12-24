@@ -28,6 +28,12 @@ function addComma(num) {
 console.log(btnCola[0].disabled);
 //콜라 아이템 버튼 활성화
 
+function doPrint() {
+  balanceStr.innerText = `${addComma(sumDeposit)}원`;
+  cashStr.innerText = `${addComma(cash)}원`;
+  inpDeposit.value = "";
+}
+
 function doEnabled() {
   btnCola.forEach((item) => {
     if (sumDeposit >= 1000) {
@@ -45,16 +51,15 @@ function doEnabled() {
 let sumDeposit = 0;
 
 function doDeposit() {
-  //방지: 소지금 초과, 문자입력 알림창, 마이너스 금액 입력
+  //방지: 소지금 초과, 문자입력 알림창, 마이너스 금액 입력, 0원 혹은 미입력
   if (+inpDeposit.value > cash) {
-    inpDeposit.value = "";
     return alert("소지금을 초과하였습니다.");
   } else if (isNaN(inpDeposit.value)) {
-    inpDeposit.value = "";
     return alert("숫자를 입력하세요.");
   } else if (+inpDeposit.value < 0) {
-    inpDeposit.value = "";
     return alert("마이너스로 시작하는 금액은 없습니다.");
+  } else if (inpDeposit.value == 0) {
+    return alert("값을 입력하세요");
   }
 
   //입금액 반영
@@ -62,16 +67,21 @@ function doDeposit() {
   cash -= +inpDeposit.value;
 
   doEnabled();
-
-  //출력: 입금액
-  balanceStr.innerText = `${addComma(sumDeposit)}원`;
-  //출력: 소지금
-  cashStr.innerText = `${addComma(cash)}원`;
-  //입력창 리셋
-  inpDeposit.value = "";
+  doPrint();
 }
 
+//환불 버튼
+btnRefund.addEventListener("click", function () {
+  cash += sumDeposit;
+  sumDeposit = 0;
+  cashStr.innerText = `${addComma(cash)}원`;
+  balanceStr.innerText = `0원`;
+  doEnabled();
+  doPrint();
+});
+
+//입금 버튼
 btnDeposit.addEventListener("click", function () {
   doDeposit();
-  console.log("입금버튼 확인");
+  inpDeposit.value = "";
 });
