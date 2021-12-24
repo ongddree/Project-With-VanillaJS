@@ -65,6 +65,9 @@ body {
   text-align: center;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   border: 1px solid transparent;
+  transition-property: filter;
+  transition: ease-in-out all 0.3s;
+  filter: grayscale(70%);
 }
 
 .cola__btn:disabled {
@@ -74,7 +77,7 @@ body {
 
 .cola__btn.enabled {
   border: 1px solid var(--3rd-color);
-  background-color: var(--2nd-color);
+  filter: none;
 }
 
 .cola__img {
