@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ColaCola</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin /> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./resource/style/reset.css" />
     <link rel="stylesheet" href="./resource/style/style.css" />
-    <script defer src="./resource/js/script.js"></script>
   </head>
   <body>
     <div class="app">
@@ -123,18 +124,19 @@
         </ul>
         <div class="check">
           <div class="check__money check__money--amount">
-            잔액 :
-            <span>1,000원</span>
+            입금액 :
+            <span id="balance">1,000원</span>
           </div>
-          <button class="check__btn">거스름돈 반환</button>
+          <button class="check__btn" id="btnRefund">거스름돈 반환</button>
         </div>
         <div class="check">
           <input
             type="text"
             placeholder="입금액 입력"
             class="check__money check__money--input"
+            id="inpDeposit"
           />
-          <button type="submit" class="check__btn">입금</button>
+          <button type="submit" class="check__btn" id="btnDeposit">입금</button>
         </div>
         <div class="order-sect">
           <ul class="order-list order-list--staged">
@@ -168,7 +170,7 @@
         <div class="bill-result">
           <div class="check__money--amount">
             소지금
-            <strong class="check__cash">25,000원</strong>
+            <strong id="cash" class="check__cash">25,000원</strong>
           </div>
         </div>
         <div class="order-result">
@@ -219,7 +221,7 @@
               <strong class="order-item__number">5</strong>
             </li>
           </ul>
-          <p class="order-result__sum">총금액 : 9,000 원</p>
+          <p class="order-result__sum" id="totalAmount">총금액 : 9,000 원</p>
         </div>
       </section>
     </div>
