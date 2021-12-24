@@ -26,6 +26,8 @@ body {
   align-items: center;
 }
 
+/* 첫 번째 페이지 */
+
 .page {
   width: 360px;
   height: 545px;
@@ -177,4 +179,74 @@ body {
   font-size: 1.3rem;
   color: var(--1st-color);
   background-color: var(--3rd-color);
+}
+
+/* 두 번째 페이지  */
+
+.page--bill {
+  background-color: var(--2nd-color);
+}
+
+.bill-result {
+  width: 100%;
+  padding: 9px 27px 9px;
+  background-color: var(--1st-color);
+  margin-bottom: 20px;
+}
+
+.check__cash {
+  font-weight: 700;
+}
+
+.order-result {
+  background-color: var(--1st-color);
+  padding: 25px 27px 26px;
+  height: 100%;
+}
+
+.order-result__tit {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.order-list--result {
+  width: 100%;
+  padding-bottom: 132px;
+  margin-top: 13px;
+  margin-bottom: 6px;
+}
+
+.order-result__sum {
+  font-size: 1.2rem;
+  text-align: right;
+  font-weight: 500;
+  line-height: 1.7rem;
+}
+
+.order-item__number {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--4th-color);
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 2.7rem;
+}
+
+.cola-list__item--soldout {
+  position: relative;
+}
+
+.cola-list__item--soldout::before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: url("../img/Sold-out.png") no-repeat center / 58px 45px
+    rgba(0, 0, 0, 0.8);
 }
