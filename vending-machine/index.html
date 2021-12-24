@@ -13,5 +13,157 @@
     <link rel="stylesheet" href="./resource/style/style.css" />
     <script defer src="./resource/js/script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="app">
+      <h1 class="app-tit sr-only">vending-machine</h1>
+      <section class="page page--order">
+        <ul class="cola-list">
+          <li class="cola-list__item">
+            <button
+              class="cola__btn"
+              data-item="Original Cola"
+              data-count=""
+              data-price=""
+              data-image=""
+            >
+              <img
+                src="resource/img/Original_Cola.png"
+                alt=""
+                class="cola__img"
+              />
+              <span class="cola__tit">Original_Cola</span>
+              <strong class="cola__pri">1000원</strong>
+            </button>
+          </li>
+          <li class="cola-list__item cola-list__item--soldout">
+            <button
+              class="cola__btn"
+              data-item="Original Cola"
+              data-count=""
+              data-price=""
+              data-image=""
+            >
+              <img
+                src="resource/img/Orange_Cola.png"
+                alt="Orange Cola image"
+                class="cola__img"
+              />
+              <span class="cola__tit">Orange Cola</span>
+              <strong class="cola__pri">1000원</strong>
+            </button>
+          </li>
+          <li class="cola-list__item">
+            <button
+              class="cola__btn"
+              data-item="Violet_Cola"
+              data-count=""
+              data-price=""
+              data-image=""
+            >
+              <img
+                src="resource/img/Violet_Cola.png"
+                alt="Violet Cola image"
+                class="cola__img"
+              />
+              <span class="cola__tit">Violet Cola</span>
+              <strong class="cola__pri">1000원</strong>
+            </button>
+          </li>
+          <li class="cola-list__item">
+            <button
+              class="cola__btn"
+              data-item="Original Cola"
+              data-count=""
+              data-price=""
+              data-image=""
+            >
+              <img
+                src="resource/img/Yellow_Cola.png"
+                alt="Yellow_Cola image"
+                class="cola__img"
+              />
+              <span class="cola__tit">Yellow Cola</span>
+              <strong class="cola__pri">1000원</strong>
+            </button>
+          </li>
+          <li class="cola-list__item">
+            <button
+              class="cola__btn"
+              data-item="Original Cola"
+              data-count=""
+              data-price=""
+              data-image=""
+            >
+              <img
+                src="resource/img/Cool_Cola.png"
+                alt="Cool Cola image"
+                class="cola__img"
+              />
+              <span class="cola__tit">Cool Cola</span>
+              <strong class="cola__pri">1000원</strong>
+            </button>
+          </li>
+          <li class="cola-list__item">
+            <button
+              class="cola__btn"
+              data-item="Original Cola"
+              data-count=""
+              data-price=""
+              data-image=""
+            >
+              <img
+                src="resource/img/Green_Cola.png"
+                alt="Green Cola image"
+                class="cola__img"
+              />
+              <span class="cola__tit">Green Cola</span>
+              <strong class="cola__pri">1000원</strong>
+            </button>
+          </li>
+        </ul>
+        <div class="check">
+          <div class="check__money check__money--amount">
+            잔액 :
+            <span>1,000원</span>
+          </div>
+          <button class="check__btn">거스름돈 반환</button>
+        </div>
+        <div class="check">
+          <input
+            type="text"
+            placeholder="입금액 입력"
+            class="check__money check__money--input"
+          />
+          <button type="submit" class="check__btn">입금</button>
+        </div>
+        <div class="order-sect">
+          <ul class="order-list order-list--staged">
+            <li class="order-list__item">
+              <div class="order-item">
+                <img
+                  src="./resource/img/Original_Cola.png"
+                  alt=""
+                  class="order-item__img"
+                />
+                <span class="order-item__tit">Original Cola</span>
+              </div>
+              <strong class="order-item__number">1</strong>
+            </li>
+            <li class="order-list__item">
+              <div class="order-item">
+                <img
+                  src="./resource/img/Green_Cola.png"
+                  alt=""
+                  class="order-item__img"
+                />
+                <span class="order-item__tit">Green Cola</span>
+              </div>
+              <strong class="order-item__number">1</strong>
+            </li>
+          </ul>
+          <button class="order-sect__btn">획득</button>
+        </div>
+      </section>
+    </div>
+  </body>
 </html>
