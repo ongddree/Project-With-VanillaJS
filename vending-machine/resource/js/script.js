@@ -104,6 +104,7 @@ function doSelect(event) {
   doPrint();
   doEnabled();
   doSoldout(event.target);
+  doCart(e.item, e.src, e.count, e.id);
 }
 
 // 기능 : 품절
@@ -112,6 +113,33 @@ function doSoldout(item) {
     item.classList.remove("enabled");
     item.classList.add("soldout");
     item.disabled = true;
-    btnCola;
+  }
+}
+
+const staged = document.getElementById("staged");
+
+function doCart(item, src, count, idtext) {
+  if (count != 4) {
+    let quantity = document.getElementById(`${idtext}-staged`);
+    count = 5 - count;
+    quantity.innerText = count;
+  } else {
+    let li = document.createElement("li");
+    li.className = "order-list__item";
+    let div = document.createElement("div");
+    div.className = "order-item";
+    let img = document.createElement("img");
+    img.className = "order-item__img";
+    img.setAttribute("src", `${src}`);
+    let span = document.createElement("span");
+    span.className = "order-item__tit";
+    span.append(`${item}`);
+    let strong = document.createElement("strong");
+    strong.className = "order-item__number";
+    strong.id = `${idtext}-staged`;
+    strong.append("1");
+    div.append(img, span);
+    li.append(div, strong);
+    staged.append(li);
   }
 }

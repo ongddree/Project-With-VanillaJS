@@ -23,10 +23,11 @@
           <li class="cola-list__item">
             <button
               class="cola__btn"
-              data-item="Original_Cola"
+              data-item="Original Cola"
               data-count="5"
               data-price="1000"
-              data-image=""
+              data-src="resource/img/Original_Cola.png"
+              data-id="OriginalCola"
               disabled
             >
               <img
@@ -41,10 +42,11 @@
           <li class="cola-list__item">
             <button
               class="cola__btn"
-              data-item="Orange_Cola"
+              data-item="Orange Cola"
               data-count="5"
               data-price="1000"
-              data-image=""
+              data-src="resource/img/Orange_Cola.png"
+              data-id="OrangeCola"
               disabled
             >
               <img
@@ -59,10 +61,11 @@
           <li class="cola-list__item">
             <button
               class="cola__btn"
-              data-item="Violet_Cola"
+              data-item="Violet Cola"
               data-count="5"
               data-price="1000"
-              data-image=""
+              data-src="resource/img/Violet_Cola.png"
+              data-id="VioletCola"
               disabled
             >
               <img
@@ -77,10 +80,11 @@
           <li class="cola-list__item">
             <button
               class="cola__btn"
-              data-item="Yellow_Cola"
+              data-item="Yellow Cola"
               data-count="5"
               data-price="1000"
-              data-image=""
+              data-src="resource/img/Yellow_Cola.png"
+              data-id="YellowCola"
               disabled
             >
               <img
@@ -95,10 +99,11 @@
           <li class="cola-list__item">
             <button
               class="cola__btn"
-              data-item="Cool_Cola"
+              data-item="Cool Cola"
               data-count="5"
               data-price="1000"
-              data-image=""
+              data-src="resource/img/Cool_Cola.png"
+              data-id="CoolCola"
               disabled
             >
               <img
@@ -113,10 +118,11 @@
           <li class="cola-list__item">
             <button
               class="cola__btn"
-              data-item="Green_Cola"
+              data-item="Green Cola"
               data-count="5"
               data-price="1000"
-              data-image=""
+              data-src="resource/img/Green_Cola.png"
+              data-id="GreenCola"
               disabled
             >
               <img
@@ -146,30 +152,7 @@
           <button type="submit" class="check__btn" id="btnDeposit">입금</button>
         </div>
         <div class="order-sect">
-          <ul class="order-list order-list--staged">
-            <li class="order-list__item">
-              <div class="order-item">
-                <img
-                  src="./resource/img/Original_Cola.png"
-                  alt=""
-                  class="order-item__img"
-                />
-                <span class="order-item__tit">Original Cola</span>
-              </div>
-              <strong class="order-item__number">1</strong>
-            </li>
-            <li class="order-list__item">
-              <div class="order-item">
-                <img
-                  src="./resource/img/Green_Cola.png"
-                  alt=""
-                  class="order-item__img"
-                />
-                <span class="order-item__tit">Green Cola</span>
-              </div>
-              <strong class="order-item__number">1</strong>
-            </li>
-          </ul>
+          <ul class="order-list order-list--staged" id="staged"></ul>
           <button class="order-sect__btn">획득</button>
         </div>
       </section>

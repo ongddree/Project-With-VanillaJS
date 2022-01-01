@@ -164,7 +164,8 @@ span {
   background-color: var(--2nd-color);
   border-radius: 5px;
   padding: 12px;
-  /* overflow:scroll;  */
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .order-list--staged {
@@ -179,7 +180,11 @@ span {
   padding: 8px;
   padding-left: 10px;
   align-items: center;
-  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+.order-list__item:first-child {
+  margin-top: 0;
 }
 
 .order-item {
