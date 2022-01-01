@@ -7,12 +7,17 @@ const btnRefund = document.getElementById("btnRefund");
 const balanceStr = document.getElementById("balance");
 const totalAmo = document.getElementById("totalAmount");
 const btnCola = Array.from(document.getElementsByClassName("cola__btn"));
+const colaList = document.getElementById("colaList");
 
 function AmountCommas(val) {
   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-//입금액 읽어오기
+
+//변수 : 소지금 콤마제거해서 가져오기
 let cash = +rmComma(cashStr.innerText);
+
+//변수 : 입금액
+let sumDeposit = 0;
 
 //콤마 제거
 function rmComma(str) {
@@ -25,21 +30,19 @@ function addComma(num) {
   return num.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1,");
 }
 
-console.log(btnCola[0].disabled);
-//콜라 아이템 버튼 활성화
-
+//기능 : 화면에 입금액, 소지금 출력
 function doPrint() {
   balanceStr.innerText = `${addComma(sumDeposit)}원`;
   cashStr.innerText = `${addComma(cash)}원`;
   inpDeposit.value = "";
 }
 
+//기능 : 콜라 아이템 버튼 활성화
 function doEnabled() {
   btnCola.forEach((item) => {
     if (sumDeposit >= 1000) {
       item.classList.add("enabled");
       item.disabled = false;
-      console.log(btnCola[0].disabled);
     } else {
       item.classList.remove("enabled");
       item.disabled = true;
@@ -47,8 +50,7 @@ function doEnabled() {
   });
 }
 
-//입금기능
-let sumDeposit = 0;
+//기능 : 입금
 
 function doDeposit() {
   //방지: 소지금 초과, 문자입력 알림창, 마이너스 금액 입력, 0원 혹은 미입력
@@ -70,7 +72,13 @@ function doDeposit() {
   doPrint();
 }
 
-//환불 버튼
+//이벤트 : 입금 버튼
+btnDeposit.addEventListener("click", function () {
+  doDeposit();
+  inpDeposit.value = "";
+});
+
+//이벤트 : 환불 버튼
 btnRefund.addEventListener("click", function () {
   cash += sumDeposit;
   sumDeposit = 0;
@@ -80,8 +88,24 @@ btnRefund.addEventListener("click", function () {
   doPrint();
 });
 
-//입금 버튼
-btnDeposit.addEventListener("click", function () {
-  doDeposit();
-  inpDeposit.value = "";
-});
+colaList.addEventListener("click", doSelect);
+
+// 기능 : 콜라 아이템 선택
+function doSelect(event) {
+  if (!event.target.classList.contains("cola__btn")) return;
+  let e = event.target.dataset;
+  e.count > 0 ? (e.count -= 1) : (e.count = 0);
+  sumDeposit -= +e.price;
+  doPrint();
+  doEnabled();
+  doSoldout(event.target);
+}
+
+// 기능 : 품절
+function doSoldout(item) {
+  if (item.dataset.count == "0") {
+    item.classList.remove("enabled");
+    item.classList.add("soldout");
+    item.disabled = true;
+  }
+}

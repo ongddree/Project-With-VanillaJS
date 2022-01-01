@@ -70,6 +70,12 @@ body {
   filter: grayscale(70%);
 }
 
+.cola__btn > img,
+strong,
+span {
+  pointer-events: none;
+}
+
 .cola__btn:disabled {
   cursor: not-allowed;
   pointer-events: none;
@@ -249,11 +255,11 @@ body {
   line-height: 2.7rem;
 }
 
-.cola-list__item--soldout {
+.soldout {
   position: relative;
 }
 
-.cola-list__item--soldout::before {
+.soldout::after {
   display: block;
   position: absolute;
   content: "";
