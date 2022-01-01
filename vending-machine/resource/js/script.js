@@ -8,6 +8,7 @@ const balanceStr = document.getElementById("balance");
 const totalAmo = document.getElementById("totalAmount");
 const btnCola = Array.from(document.getElementsByClassName("cola__btn"));
 const colaList = document.getElementById("colaList");
+const btnOrder = document.getElementById("btnOrder");
 
 function AmountCommas(val) {
   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -118,14 +119,21 @@ function doSoldout(item) {
 
 const staged = document.getElementById("staged");
 
+let OriginalCola = 0;
+let OrangeCola = 0;
+let VioletCola = 0;
+let YellowCola = 0;
+let GreenCola = 0;
+
 function doCart(item, src, count, idtext) {
-  if (count != 4) {
+  console.log(idtext !== 0);
+  if (idtext !== 0) {
     let quantity = document.getElementById(`${idtext}-staged`);
-    count = 5 - count;
-    quantity.innerText = count;
+    idtext += 1;
+    quantity.innerText = +quantity.innerText + 1;
   } else {
     let li = document.createElement("li");
-    li.className = "order-list__item";
+    li.className = "order-list__item staged-item";
     let div = document.createElement("div");
     div.className = "order-item";
     let img = document.createElement("img");
@@ -143,3 +151,23 @@ function doCart(item, src, count, idtext) {
     staged.append(li);
   }
 }
+
+const result = document.getElementById("result");
+
+function doOrder() {
+  let itemList = Array.from(
+    document.getElementsByClassName("order-list__item")
+  );
+
+  let strongList = Array.from(
+    document.getElementsByClassName("order-item__number")
+  );
+
+  result.append(...itemList);
+}
+
+function deleteId(e) {
+  e.id = `${date()}`;
+}
+
+btnOrder.addEventListener("click", doOrder);
