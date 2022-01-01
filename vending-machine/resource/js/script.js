@@ -43,6 +43,11 @@ function doEnabled() {
     if (sumDeposit >= 1000) {
       item.classList.add("enabled");
       item.disabled = false;
+      //품절 상품 활성화 방지
+      if (item.classList.contains("soldout")) {
+        item.classList.remove("enabled");
+        item.disabled = true;
+      }
     } else {
       item.classList.remove("enabled");
       item.disabled = true;
@@ -107,5 +112,6 @@ function doSoldout(item) {
     item.classList.remove("enabled");
     item.classList.add("soldout");
     item.disabled = true;
+    btnCola;
   }
 }
