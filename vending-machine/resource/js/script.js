@@ -163,10 +163,14 @@ const resultList = document.getElementById("resultList");
 function doOrder() {
   let itemList = Array.from(document.getElementsByClassName("staged"));
   resultList.append(...itemList);
+  for (let li of itemList) {
+    li.classList.remove("staged");
+  }
+  resetStaged();
 }
 
 function resetStaged() {
-  for (let i of stagedData) {
+  for (let i in stagedData) {
     stagedData[i] = 0;
   }
 }
