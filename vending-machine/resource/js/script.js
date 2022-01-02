@@ -102,10 +102,11 @@ function doSelect(event) {
   let e = event.target.dataset;
   e.count > 0 ? (e.count -= 1) : (e.count = 0);
   sumDeposit -= +e.price;
+  console.log(`e.key ${e.key}`);
   doPrint();
   doEnabled();
   doSoldout(event.target);
-  doCart(e.item, e.src, e.count, e.id);
+  doCart(e.item, e.src, e.key);
 }
 
 // 기능 : 품절
@@ -116,24 +117,29 @@ function doSoldout(item) {
     item.disabled = true;
   }
 }
+const stagedList = document.getElementById("stagedList");
 
-const staged = document.getElementById("staged");
+const stagedData = {
+  OriginalCola: 0,
+  OrangeCola: 0,
+  VioletCola: 0,
+  YellowCola: 0,
+  GreenCola: 0,
+};
 
-let OriginalCola = 0;
-let OrangeCola = 0;
-let VioletCola = 0;
-let YellowCola = 0;
-let GreenCola = 0;
-
-function doCart(item, src, count, idtext) {
-  console.log(idtext !== 0);
-  if (idtext !== 0) {
-    let quantity = document.getElementById(`${idtext}-staged`);
-    idtext += 1;
-    quantity.innerText = +quantity.innerText + 1;
+function doCart(item, src, key) {
+  if (stagedData[key] !== 0) {
+    stagedData[key] += 1;
+    console.log(`${key}는 이미 장바구니에 있는 상품입니다."`);
+    console.log(`${key}를 ${stagedData[key]}개 담았습니다.`);
+    let quantity = document.getElementById(`${key}-staged`);
+    quantity.innerText = stagedData[key];
   } else {
+    stagedData[key] += 1;
+    console.log(`최초로 ${key}를 장바구니에 담았습니다.`);
+    console.log(`${key}를 ${stagedData[key]}개 담았습니다.`);
     let li = document.createElement("li");
-    li.className = "order-list__item staged-item";
+    li.className = "order-list__item staged";
     let div = document.createElement("div");
     div.className = "order-item";
     let img = document.createElement("img");
@@ -144,30 +150,19 @@ function doCart(item, src, count, idtext) {
     span.append(`${item}`);
     let strong = document.createElement("strong");
     strong.className = "order-item__number";
-    strong.id = `${idtext}-staged`;
-    strong.append("1");
+    strong.id = `${key}-staged`;
+    strong.append(stagedData[key]);
     div.append(img, span);
     li.append(div, strong);
-    staged.append(li);
+    stagedList.append(li);
   }
 }
 
-const result = document.getElementById("result");
+const resultList = document.getElementById("resultList");
 
 function doOrder() {
-  let itemList = Array.from(
-    document.getElementsByClassName("order-list__item")
-  );
-
-  let strongList = Array.from(
-    document.getElementsByClassName("order-item__number")
-  );
-
-  result.append(...itemList);
-}
-
-function deleteId(e) {
-  e.id = `${date()}`;
+  let itemList = Array.from(document.getElementsByClassName("staged"));
+  resultList.append(...itemList);
 }
 
 btnOrder.addEventListener("click", doOrder);
