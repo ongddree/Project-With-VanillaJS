@@ -91,8 +91,8 @@ btnDeposit.addEventListener("click", function () {
 btnRefund.addEventListener("click", function () {
   cash += sumDeposit;
   sumDeposit = 0;
-  cashStr.innerText = `${addComma(cash)}원`;
-  balanceStr.innerText = `0원`;
+  // cashStr.innerText = `${addComma(cash)}원`;
+  // balanceStr.innerText = `0원`;
   doEnabled();
   doPrint();
 });
