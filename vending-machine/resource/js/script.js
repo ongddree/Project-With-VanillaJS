@@ -20,6 +20,9 @@ let cash = +rmComma(cashStr.innerText);
 //변수 : 입금액
 let sumDeposit = 0;
 
+//변수 : 총금액
+let sumResult = 0;
+
 //콤마 제거
 function rmComma(str) {
   str = String(str);
@@ -102,7 +105,7 @@ function doSelect(event) {
   let e = event.target.dataset;
   e.count > 0 ? (e.count -= 1) : (e.count = 0);
   sumDeposit -= +e.price;
-  console.log(`e.key ${e.key}`);
+  sumResult += 1000;
   doPrint();
   doEnabled();
   doSoldout(event.target);
@@ -122,6 +125,7 @@ const stagedList = document.getElementById("stagedList");
 const stagedData = {
   OriginalCola: 0,
   OrangeCola: 0,
+  CoolCola: 0,
   VioletCola: 0,
   YellowCola: 0,
   GreenCola: 0,
@@ -167,6 +171,7 @@ function doOrder() {
     li.classList.remove("staged");
   }
   resetStaged();
+  doBill();
 }
 
 function resetStaged() {
@@ -176,3 +181,9 @@ function resetStaged() {
 }
 
 btnOrder.addEventListener("click", doOrder);
+
+const resultStr = document.getElementById("resultStr");
+
+function doBill() {
+  resultStr.innerText = `총금액 :  ${addComma(sumResult)}원`;
+}
