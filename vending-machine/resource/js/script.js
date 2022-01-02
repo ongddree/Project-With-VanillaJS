@@ -165,4 +165,10 @@ function doOrder() {
   resultList.append(...itemList);
 }
 
+function resetStaged() {
+  for (let i of stagedData) {
+    stagedData[i] = 0;
+  }
+}
+
 btnOrder.addEventListener("click", doOrder);
